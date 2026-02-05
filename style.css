@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    width: 350px;
+    background: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.display-area {
+    background: #1e1e1e;
+    padding: 30px 20px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.prev-expression {
+    font-size: 14px;
+    color: #888888;
+    text-align: right;
+    min-height: 20px;
+    font-weight: 400;
+}
+
+.current-display {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 1.2;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    padding: 10px;
+    background: #1e1e1e;
+}
+
+.btn {
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Segoe UI', 'Inter', sans-serif;
+    padding: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-number {
+    background: #333333;
+    color: #ffffff;
+}
+
+.btn-number:hover {
+    background: #4a4a4a;
+}
+
+.btn-operator {
+    background: #ff9500;
+    color: #ffffff;
+}
+
+.btn-operator:hover {
+    background: #ffae42;
+}
+
+.btn-function {
+    background: #a5a5a5;
+    color: #000000;
+}
+
+.btn-function:hover {
+    background: #c7c7c7;
+}
+
+.btn-zero {
+    grid-column: span 2;
+    border-radius: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .current-display {
+        font-size: 40px;
+    }
+    
+    .btn {
+        padding: 20px;
+        font-size: 20px;
+    }
+}
+
+/* Accessibility */
+.btn:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.btn:focus:not(:focus-visible) {
+    outline: none;
+}
